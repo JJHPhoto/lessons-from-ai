@@ -1,45 +1,45 @@
-import Head from "next/head";
-import react, { useState } from "react";
-//modify or update
-import styles from "../styles/Home.module.css";
-// import  from "react";
-// import { useState, useEffect } from "react";
+// import Head from "next/head";
+// import react, { useState } from "react";
+// //modify or update
+// import styles from "../styles/Home.module.css";
+// // import  from "react";
+// // import { useState, useEffect } from "react";
 
-export default function Home() {
-  const [userInput, setUserInput] = useState("");
-  const [result, setResult] = useState();
+// export default function Home() {
+//   const [userInput, setUserInput] = useState("");
+//   const [result, setResult] = useState();
 
-  async function onSubmit(event) {
-    event.preventDefault();
-    const response = await fetch("/api/generate", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ user: userInput }),
-    });
-    const data = await response.json();
-    setResult(data.result);
-    setUserInput("");
-  }
+//   async function onSubmit(event) {
+//     event.preventDefault();
+//     const response = await fetch("/api/generate", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({ user: userInput }),
+//     });
+//     const data = await response.json();
+//     setResult(data.result);
+//     setUserInput("");
+//   }
 
-  return (
-    <div>
-      <h1>History lessons</h1>
-      <form onSubmit={onSubmit}>
-        <input
-          type="text"
-          name="user"
-          placeholder="What would you like to know about history?"
-          value={userInput}
-          onChange={(e) => setUserInput(e.target.value)}
-        />
-        <input type="submit" value="Learn!" />
-      </form>
-    </div>
-  );
-  console.log(userInput);
-}
+//   return (
+//     <div>
+//       <h1>History lessons</h1>
+//       <form onSubmit={onSubmit}>
+//         <input
+//           type="text"
+//           name="user"
+//           placeholder="What would you like to know about history?"
+//           value={userInput}
+//           onChange={(e) => setUserInput(e.target.value)}
+//         />
+//         <input type="submit" value="Learn!" />
+//       </form>
+//     </div>
+//   );
+//   console.log(userInput);
+// }
 
 // export default function Home() {
 //   const [data, setData] = useState({ text: "" });
@@ -102,3 +102,52 @@ export default function Home() {
 //     </div>
 //   );
 // }
+
+//just trying to get process going
+import Head from "next/head";
+import { useState } from "react";
+// import styles from "./index.module.css";
+
+export default function Home() {
+  const [animalInput, setAnimalInput] = useState("");
+  const [result, setResult] = useState();
+
+  async function onSubmit(event) {
+    event.preventDefault();
+    const response = await fetch("/api/generate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ animal: animalInput }),
+    });
+    const data = await response.json();
+    setResult(data.result);
+    setAnimalInput("");
+  }
+
+  return (
+    <div>
+      <Head>
+        <title>OpenAI Quickstart</title>
+        <link rel="icon" href="/dog.png" />
+      </Head>
+
+      {/* <main className={styles.main}> */}
+      {/* <img src="/dog.png" className={styles.icon} /> */}
+      <h3>Name my pet</h3>
+      <form onSubmit={onSubmit}>
+        <input
+          type="text"
+          name="animal"
+          placeholder="Enter an animal"
+          value={animalInput}
+          onChange={(e) => setAnimalInput(e.target.value)}
+        />
+        <input type="submit" value="Generate names" />
+      </form>
+      <div>{result}</div>
+      {/* </main> */}
+    </div>
+  );
+}
