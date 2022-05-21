@@ -47,4 +47,13 @@ The first thing I did was read The Challenge included in the job application. I 
 
 ![image](historyLesson.jpg)
 
-After some trial and errors, I came across a tutorial by [Harish Garb](https://harishgarg.com/writing/how-to-build-a-serverless-gpt-3-powered-using-nextjs-react/) on how to build this app. I had thought I could easily create the app in React in a similar way to apps I had made in my certificate course. Unfortunately, I'm a bit rusty and ran into a few issues. However, those issues led me to Harish's tutorial and hopefull that will lead me on to completing this app.
+It took me a while to get my prompts to work. I tried a few different tutorials and couldn't quite get them to match. I ended up repurposing the OpenAI quickstart app code. Once I got my prompt and API key working in the app, I started to work on the layout and style.
+
+## Resources
+
+Here's a list of resources I looked at that helped me figure things out. I didn't use everything in these tutorials but they gave me pieces to work with.
+
+1. [OpenAI Quickstart](https://beta.openai.com/docs/quickstart)
+2. [Harish Garb's Serverless Tutorial](https://harishgarg.com/writing/how-to-build-a-serverless-gpt-3-powered-using-nextjs-react/)
+3. [Skolo Online's YouTube Tutorial](https://www.youtube.com/watch?v=Xxtu-bkSAB8)
+4. [OpenAI Playground](https://beta.openai.com/playground)
