@@ -51,22 +51,33 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 export default async function (req, res) {
-  const completion = await openai.createCompletion("text-davinci-002", {
-    prompt: generatePrompt(req.body.animal),
+  const completion = await openai.createCompletion("text-curie-001", {
+    prompt: generatePrompt(req.body.user),
     temperature: 0.6,
+    max_tokens: 200,
   });
   res.status(200).json({ result: completion.data.choices[0].text });
 }
 
-function generatePrompt(animal) {
-  const capitalizedAnimal =
-    animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-  return `Suggest three names for an animal that is a superhero.
-
-Animal: Cat
-Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
-Animal: Dog
-Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
-Animal: ${capitalizedAnimal}
-Names:`;
+function generatePrompt(user) {
+  // const capitalizedAnimal =
+  //   animal[0].toUpperCase() + animal.slice(1).toLowerCase();
+  return `I am a highly intelligent question answering bot. If you ask me a question that is rooted in truth, I will give you the answer. If you ask me a question that is nonsense, trickery, or has no clear answer, I will respond with \"Unknown\".\n\nQ: What was the first empire in history?\nA: The first empire in history was the Assyrian Empire\n\nQ: Who succeeded them?\nA: The succeeding empire was the Persian Empire.\n\nQ: Not the Babylonians?\nA: The Babylonians did not succeed the Assyrian Empire, but were a predecessor of that empire.\n\nQ: Did Babylon have an empire?\nA: No, Babylon did not have an empire.\n\nQ: What about Egypt?\nA: Egypt was not an empire, but had a long history of being an influential culture and power in the region.\n\nQ: Why was Assyria an empire?\nA: The Assyrian Empire was an empire because it was a large and powerful kingdom that controlled a large area of the world\n\nQ: Who came after the Persians?\n`;
 }
+
+// const { Configuration, OpenAIApi } = require("openai");
+
+// const configuration = new Configuration({
+//   apiKey: process.env.OPENAI_API_KEY,
+// });
+// const openai = new OpenAIApi(configuration);
+
+// const response = await openai.createCompletion("text-curie-001", {
+//   prompt: "I am a highly intelligent question answering bot. If you ask me a question that is rooted in truth, I will give you the answer. If you ask me a question that is nonsense, trickery, or has no clear answer, I will respond with \"Unknown\".\n\nQ: What was the first empire in history?\nA: The first empire in history was the Assyrian Empire\n\nQ: Who succeeded them?\nA: The succeeding empire was the Persian Empire.\n\nQ: Not the Babylonians?\nA: The Babylonians did not succeed the Assyrian Empire, but were a predecessor of that empire.\n\nQ: Did Babylon have an empire?\nA: No, Babylon did not have an empire.\n\nQ: What about Egypt?\nA: Egypt was not an empire, but had a long history of being an influential culture and power in the region.\n\nQ: Why was Assyria an empire?\nA: The Assyrian Empire was an empire because it was a large and powerful kingdom that controlled a large area of the world\n\nQ: Who came after the Persians?\n",
+//   temperature: 0,
+//   max_tokens: 100,
+//   top_p: 1,
+//   frequency_penalty: 0,
+//   presence_penalty: 0,
+//   stop: ["\n"],
+// });

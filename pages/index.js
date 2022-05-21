@@ -109,7 +109,7 @@ import { useState } from "react";
 // import styles from "./index.module.css";
 
 export default function Home() {
-  const [animalInput, setAnimalInput] = useState("");
+  const [userInput, setUserInput] = useState("");
   const [result, setResult] = useState();
 
   async function onSubmit(event) {
@@ -119,32 +119,32 @@ export default function Home() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ animal: animalInput }),
+      body: JSON.stringify({ user: userInput }),
     });
     const data = await response.json();
     setResult(data.result);
-    setAnimalInput("");
+    setUserInput("");
   }
 
   return (
     <div>
-      <Head>
+      {/* <Head>
         <title>OpenAI Quickstart</title>
         <link rel="icon" href="/dog.png" />
-      </Head>
+      </Head> */}
 
       {/* <main className={styles.main}> */}
       {/* <img src="/dog.png" className={styles.icon} /> */}
-      <h3>Name my pet</h3>
+      <h3>Find out about early empires!</h3>
       <form onSubmit={onSubmit}>
         <input
           type="text"
-          name="animal"
-          placeholder="Enter an animal"
-          value={animalInput}
-          onChange={(e) => setAnimalInput(e.target.value)}
+          name="question"
+          placeholder="Ask a question about ancient empires"
+          value={userInput}
+          onChange={(e) => setUserInput(e.target.value)}
         />
-        <input type="submit" value="Generate names" />
+        <input type="submit" value="Find out" />
       </form>
       <div>{result}</div>
       {/* </main> */}
