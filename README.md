@@ -47,7 +47,12 @@ The first thing I did was read The Challenge included in the job application. I 
 
 ![image](historyLesson.jpg)
 
-It took me a while to get my prompts to work. I tried a few different tutorials and couldn't quite get them to match. I ended up repurposing the OpenAI quickstart app code. Once I got my prompt and API key working in the app, I started to work on the layout and style.
+It took me a while to get my prompts to work. I tried a few different tutorials and couldn't quite get them to match. I ended up repurposing the OpenAI quickstart app code. Once I got my prompt and API key working in the app, I started to work on the layout and style. However, while working on the styling, I encountered some issues with my API call. I think I had used too specific a train of thought and when I asked something unaligned, the answers got messed up.
+
+## Improvements
+
+1. Have the AI "learn" with each question. I would like to try and set the state after each question to include the user's question so that they could continue to ask questions and build to a conclusion of their questions.
+2. Make the input box editable. I'd like the user to be able to go back to change or delete a question. Maybe the user didn't like a previous question or the answer to a question and wanted to redo the question(s). This would need to be reflected in state.
 
 ## Resources
 

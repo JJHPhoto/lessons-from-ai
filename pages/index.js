@@ -26,15 +26,21 @@ export default function Home() {
     <Container>
       {/* <div> */}
       {/* <h3>Find out about early empires!</h3> */}
+
       <Form onSubmit={onSubmit}>
         <Form.Group className="mb-3" controlId="formUserQuestion">
           <History />
           <Form.Control
             className="inputBox"
+            name="question"
             type="text"
             placeholder="Ask me about some history!"
+            value={userInput}
+            onChange={(e) => setUserInput(e.target.value)}
           />
-          {/* <Form.Text className="text-muted">Learn about some.</Form.Text> */}
+          <Form.Text className="text-muted">
+            Learn about some history.
+          </Form.Text>
         </Form.Group>
         <Button varient="primary" type="submit">
           Ask
@@ -42,11 +48,11 @@ export default function Home() {
       </Form>
       {/* <form onSubmit={onSubmit}>
         <input
-          type="text"
-          name="question"
-          placeholder="Ask a question about ancient empires"
-          value={userInput}
-          onChange={(e) => setUserInput(e.target.value)}
+        type="text"
+        name="question"
+        placeholder="Ask a question about ancient empires"
+        value={userInput}
+        onChange={(e) => setUserInput(e.target.value)}
         />
         <input type="submit" value="Find out" />
       </form> */}
