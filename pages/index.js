@@ -106,6 +106,7 @@
 //just trying to get process going
 import Head from "next/head";
 import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 // import styles from "./index.module.css";
 
 export default function Home() {
