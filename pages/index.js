@@ -3,7 +3,7 @@ import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Home() {
-  const [animalInput, setAnimalInput] = useState("");
+  const [commandInput, setCommandInput] = useState("");
   const [result, setResult] = useState();
 
   async function onSubmit(event) {
@@ -13,11 +13,11 @@ export default function Home() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ animal: animalInput }),
+      body: JSON.stringify({ command: commandInput }),
     });
     const data = await response.json();
     setResult(data.result);
-    setAnimalInput("");
+    setCommandInput("");
   }
 
   return (
@@ -27,16 +27,16 @@ export default function Home() {
       </Head>
 
       <main>
-        <h3>Name my pet</h3>
+        <h3>Gather information</h3>
         <form onSubmit={onSubmit}>
           <input
             type="text"
-            name="animal"
-            placeholder="Enter an animal"
-            value={animalInput}
-            onChange={(e) => setAnimalInput(e.target.value)}
+            name="command"
+            placeholder="Learn about locations"
+            value={commandInput}
+            onChange={(e) => setCommandInput(e.target.value)}
           />
-          <input type="submit" value="Generate names" />
+          <input type="submit" value="Command" />
         </form>
         <div>{result}</div>
       </main>
