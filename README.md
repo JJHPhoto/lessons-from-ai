@@ -49,6 +49,23 @@ The first thing I did was read The Challenge included in the job application. I 
 
 It took me a while to get my prompts to work. I tried a few different tutorials and couldn't quite get them to match. I ended up repurposing the OpenAI quickstart app code. Once I got my prompt and API key working in the app, I started to work on the layout and style. However, while working on the styling, I encountered some issues with my API call. I think I had used too specific a train of thought and when I asked something unaligned, the answers got messed up.
 
+I decided to make some simpler prompts and found out there was some serious difference between the suggested "text-curie-001":
+
+![image](text-curie.jpg)
+
+and "text-davinci-002"
+
+![image](text-davinci.jpg)
+
+I tried changing the temperature for the "text-curie-001" and only got the same issue with longer translations, ig no Chinese/Mandarin translation. So I decided to not include that example because I didn't want to use "text-davinci-002".
+
+I read The Challenge again for some clarity. After reading it again, I realized I had gone off on a tangent that wasn't really applicable. Realizing I went on this tangent, I'm unsure I'll be able to finish the app before the deadline. So I set myself (again) some goals in order of what I could accomplish:
+
+1. Get my prompt working.
+2. Display the results in a card below the prompt.
+3. Style the app using Bootstrap-React.
+4. Save the results in descending order on the app page.
+
 ## Improvements
 
 1. Have the AI "learn" with each question. I would like to try and set the state after each question to include the user's question so that they could continue to ask questions and build to a conclusion of their questions.
