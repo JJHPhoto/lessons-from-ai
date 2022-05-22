@@ -66,6 +66,8 @@ I read The Challenge again for some clarity. After reading it again, I realized 
 3. Style the app using Bootstrap-React.
 4. Save the results in descending order on the app page.
 
+After a lot of trial and errors, I got a prompt that finally worked as I intended it to. With that working, I decided to try and add some styling.
+
 ## Improvements
 
 1. Have the AI "learn" with each question. I would like to try and set the state after each question to include the user's question so that they could continue to ask questions and build to a conclusion of their questions.

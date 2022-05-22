@@ -3,7 +3,7 @@ import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Home() {
-  const [commandInput, setCommandInput] = useState("");
+  const [countryInput, setCountryInput] = useState("");
   const [result, setResult] = useState();
 
   async function onSubmit(event) {
@@ -13,11 +13,11 @@ export default function Home() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ command: commandInput }),
+      body: JSON.stringify({ country: countryInput }),
     });
     const data = await response.json();
     setResult(data.result);
-    setCommandInput("");
+    setCountryInput("");
   }
 
   return (
@@ -33,10 +33,10 @@ export default function Home() {
             type="text"
             name="command"
             placeholder="Learn about locations"
-            value={commandInput}
-            onChange={(e) => setCommandInput(e.target.value)}
+            value={countryInput}
+            onChange={(e) => setCountryInput(e.target.value)}
           />
-          <input type="submit" value="Command" />
+          <input type="submit" value="Find Out" />
         </form>
         <div>{result}</div>
       </main>
